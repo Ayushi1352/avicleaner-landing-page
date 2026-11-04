@@ -1,26 +1,70 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --font-primary: Arial, sans-serif;
+  --font-heading: Arial, sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Avicleaner landing theme: deep forest green with a fresh lime accent (the logo's green, in its own look) */
+  /* Brand */
+  --color-primary: #2a7c35;
+  --color-primary-strong: #1f6a2b;
+  --color-forest: #0e3b2c;
+  --color-forest-deep: #082a20;
+  --color-lime: #c8e86b;
+  --color-lime-soft: #e9f6c8;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Text */
+  --color-heading: #0f1f1a;
+  --color-text: #4a5550;
+  --color-text-muted: #5c6863;
+  --color-text-placeholder: #8a948f;
+  --color-white: #ffffff;
+
+  /* Backgrounds and borders */
+  --color-bg-main: #ffffff;
+  --color-bg-alt: #f5f7f1;
+  --color-bg-chip: #eaf3e3;
+  /* Shown on both sides of the page when the screen is wider than 1920px (or the browser is zoomed out). */
+  --color-bg-backdrop: #f5f5f5;
+  --color-border: #e2e8de;
+
+  /* Overlays and shadows */
+  --color-primary-70: rgba(42, 124, 53, 0.7);
+  --color-card-overlay: rgba(8, 42, 32, 0.88);
+  --color-card-overlay-end: rgba(8, 42, 32, 0);
+  --color-shadow-card: rgba(14, 59, 44, 0.16);
+  --color-shadow-menu: rgba(14, 59, 44, 0.35);
+  --color-menu-backdrop: rgba(8, 42, 32, 0.5);
+  --color-white-5: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-15: rgba(255, 255, 255, 0.15);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-70: rgba(255, 255, 255, 0.7);
+  --color-white-85: rgba(255, 255, 255, 0.85);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  background-color: var(--color-bg-backdrop);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-lime);
+  color: var(--color-forest-deep);
 }
