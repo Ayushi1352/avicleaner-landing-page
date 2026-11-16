@@ -4,14 +4,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GallerySlider } from "@/components/sections/GallerySlider";
 
 /** Heading with the project count, then the recent projects as a sideways row of tall photo cards */
-export const Gallery = ({ data }: { data?: GalleryData }) => {
+export const GallerySection = ({ data }: { data?: GalleryData }) => {
   if (!data) return null;
 
   return (
-    <section className="bg-[var(--color-forest)] py-[var(--section-gap)]">
+    <section id={data.id} className="scroll-mt-[4.5rem] bg-[var(--color-forest)] py-[var(--section-gap)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-end md:gap-12">
-          <SectionHeading light label={data.label} title={data.title} description={data.description} />
+          <SectionHeading light label={data.label} titleTop={data.titleTop} titleAccent={data.titleAccent} titleBottom={data.titleBottom} description={data.description} />
           {/* project count in a see-through badge */}
           <p data-reveal className="flex items-center gap-4 self-start rounded-2xl bg-[var(--color-white-10)] px-5 py-4 md:self-end">
             <span className="font-display text-[2.25rem] font-semibold leading-none tracking-[-0.03em] text-[var(--color-lime)] lg:text-[2.75rem]">

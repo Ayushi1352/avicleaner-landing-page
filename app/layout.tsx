@@ -24,6 +24,11 @@ const fontVariables = {
 export const metadata: Metadata = {
   title: commonData.metadata.title,
   description: commonData.metadata.description,
+  icons: {
+    icon: commonData.metadata.icon,
+    shortcut: commonData.metadata.icon,
+    apple: commonData.metadata.icon,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -48,9 +53,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           (56px at 1440px; on desktop it scales with the page, see the font size above), so each section fits on one screen.
         */}
         <div className="mx-auto min-h-screen w-full max-w-[1920px] overflow-x-clip bg-[var(--color-bg-main)] [--section-gap:2.5rem] sm:[--section-gap:3.5rem]">
-          <Header data={headerData} ui={commonData.globalUI} />
+          <Header data={headerData} company={commonData.company} />
           {children}
-          <Footer data={commonData.Footer} company={commonData.company} links={headerData?.navigation} />
+          <Footer data={commonData.Footer} company={commonData.company} links={headerData?.navLinks} />
         </div>
       </body>
     </html>

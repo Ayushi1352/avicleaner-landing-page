@@ -9,43 +9,51 @@
     "metadata": {
       "title": "Avicleaner - Professional Cleaning Services for a Healthier Tomorrow",
       "description": "We provide reliable and high-quality cleaning services for homes, offices, and commercial spaces. Enjoy a cleaner, fresher and healthier environment with Avicleaner.",
+      "icon": "/images/favicon.png",
       "lang": "en"
     },
-    "globalUI": {
-      "mainNav": "Main navigation",
-      "mobileNav": "Mobile navigation",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu",
-      "backToTop": "Avicleaner - back to top"
-    },
     "company": {
-      "contactInfo": [
+      "name": "Avicleaner",
+      "logo": "/images/logo.webp",
+      "logoLight": "/images/logo-light.webp",
+      "logoAlt": "Avicleaner",
+      "logoWidth": 320,
+      "logoHeight": 100,
+      "contactItems": [
         {
+          "id": "location",
           "icon": "LuMapPin",
           "title": "Our Location",
           "lines": [
             "123 Main Street, Seattle,",
             "WA 98101, USA"
           ],
-          "href": "https://www.google.com/maps/search/?api=1&query=123%20Main%20Street%2C%20Seattle%2C%20WA%2098101%2C%20USA"
+          "url": "https://www.google.com/maps/search/?api=1&query=123%20Main%20Street%2C%20Seattle%2C%20WA%2098101%2C%20USA"
         },
         {
+          "id": "phone",
           "icon": "LuPhoneCall",
           "title": "Phone Number",
           "lines": [
             "+1 (202) 555-0147"
           ],
-          "href": "tel:+12025550147"
+          "url": "tel:+12025550147"
         },
         {
+          "id": "email",
           "icon": "LuMail",
           "title": "Email Address",
           "lines": [
             "xyz@avicleaner.com"
           ],
-          "href": "mailto:xyz@avicleaner.com"
+          "url": "mailto:xyz@avicleaner.com"
         }
-      ],
+      ]
+    },
+    "Footer": {
+      "description": "We provide professional cleaning services for homes and businesses, ensuring a cleaner, healthier and more comfortable environment for you.",
+      "quickLinksTitle": "Quick Links",
+      "contactTitle": "Contact Information",
       "socialLinks": [
         {
           "id": "facebook",
@@ -77,19 +85,8 @@
           "label": "YouTube",
           "url": "https://www.youtube.com/"
         }
-      ]
-    },
-    "Footer": {
-      "logo": {
-        "src": "/images/logo-light.webp",
-        "width": 320,
-        "height": 100,
-        "alt": "Avicleaner"
-      },
-      "tagline": "We provide professional cleaning services for homes and businesses, ensuring a cleaner, healthier and more comfortable environment for you.",
-      "menuTitle": "Quick Links",
-      "contactTitle": "Contact Information",
-      "copyright": "© {year} Avicleaner. All Rights Reserved. Powered by Lestow.",
+      ],
+      "copyrightText": "© {year} Avicleaner. All Rights Reserved. Powered by Lestow.",
       "motto": [
         "Clean",
         "Green",
@@ -103,82 +100,71 @@
         "Header": {
           "variants": {
             "CleaningHeader1": {
-              "brand": {
-                "name": "Avicleaner",
-                "logo": {
-                  "src": "/images/logo.webp",
-                  "alt": "Avicleaner",
-                  "width": 320,
-                  "height": 100
-                }
-              },
-              "navigation": [
+              "logoUrl": "/",
+              "homeLabel": "Avicleaner - back to top",
+              "navLinks": [
                 {
+                  "id": "home",
                   "label": "Home",
-                  "href": "#home"
+                  "url": "#home"
                 },
                 {
+                  "id": "about-us",
                   "label": "About Us",
-                  "href": "#about"
+                  "url": "#about"
                 },
                 {
+                  "id": "services",
                   "label": "Services",
-                  "href": "#services"
+                  "url": "#services"
                 },
                 {
+                  "id": "gallery",
                   "label": "Gallery",
-                  "href": "#gallery"
+                  "url": "#gallery"
                 },
                 {
+                  "id": "testimonials",
                   "label": "Testimonials",
-                  "href": "#testimonials"
+                  "url": "#testimonials"
                 },
                 {
+                  "id": "faq",
                   "label": "FAQ",
-                  "href": "#faq"
+                  "url": "#faq"
                 },
                 {
+                  "id": "contact-us",
                   "label": "Contact Us",
-                  "href": "#contact"
+                  "url": "#contact"
                 }
               ],
-              "cta": {
-                "label": "Contact Us",
-                "href": "#contact"
-              }
+              "buttonText": "Contact Us",
+              "buttonUrl": "#contact",
+              "mainNavLabel": "Main navigation",
+              "mobileNavLabel": "Mobile navigation",
+              "openMenuLabel": "Open menu",
+              "closeMenuLabel": "Close menu"
             }
           }
         },
         "Hero": {
           "variants": {
             "CleaningHero1": {
+              "id": "home",
               "label": "Cleaner Spaces Happier Lives",
-              "title": [
-                {
-                  "text": "Professional ",
-                  "highlight": false
-                },
-                {
-                  "text": "Cleaning Services",
-                  "highlight": true
-                },
-                {
-                  "text": " for a Healthier Tomorrow",
-                  "highlight": false
-                }
-              ],
+              "titleTop": "Professional",
+              "titleAccent": "Cleaning Services",
+              "titleBottom": "for a Healthier Tomorrow",
               "description": "Reliable, eco-friendly cleaning for homes, offices and commercial spaces.",
-              "button": {
-                "label": "Contact Us",
-                "href": "#contact"
-              },
-              "image": {
-                "src": "/images/hero.webp",
-                "alt": "Avicleaner professional cleaner wiping a kitchen counter"
-              },
+              "buttonText": "Contact Us",
+              "buttonUrl": "#contact",
+              "image": "/images/hero.webp",
+              "imageAlt": "Avicleaner professional cleaner wiping a kitchen counter",
               "clients": {
                 "value": "370+",
                 "label": "Happy clients",
+                "stars": 5,
                 "ratingLabel": "Rated 5 out of 5",
                 "images": [
                   "/images/client-priya.webp",
@@ -190,51 +176,40 @@
             }
           }
         },
-        "AboutUs": {
+        "About": {
           "variants": {
-            "CleaningAboutUs1": {
+            "CleaningAbout1": {
+              "id": "about",
               "label": "About Us",
-              "title": [
-                {
-                  "text": "Delivering Quality ",
-                  "highlight": false
-                },
-                {
-                  "text": "Cleaning Services",
-                  "highlight": true
-                }
-              ],
+              "titleTop": "Delivering Quality",
+              "titleAccent": "Cleaning Services",
               "description": "At Avicleaner, we believe a clean space leads to a healthier, happier and more productive life. Our professional team is committed to high-quality cleaning for homes, offices, and commercial spaces with care and precision.",
-              "image": {
-                "src": "/images/about-cleaner.webp",
-                "alt": "Avicleaner cleaner smiling while wiping a table"
-              },
-              "secondImage": {
-                "src": "/images/about-sofa.webp",
-                "alt": "Sofa being vacuumed"
-              },
+              "image": "/images/about-cleaner.webp",
+              "imageAlt": "Avicleaner cleaner smiling while wiping a table",
+              "secondImage": "/images/about-sofa.webp",
+              "secondImageAlt": "Sofa being vacuumed",
               "badge": {
                 "value": "30+",
                 "label": "Years of Experience"
               },
               "features": [
                 {
-                  "icon": "FaGem",
+                  "id": "reliable-service",
                   "title": "Reliable Service",
                   "text": "On-Time & Consistent"
                 },
                 {
-                  "icon": "HiUserGroup",
+                  "id": "expert-cleaners",
                   "title": "Expert Cleaners",
                   "text": "Trained & Verified Staff"
                 },
                 {
-                  "icon": "FaLeaf",
+                  "id": "eco-friendly",
                   "title": "Eco-Friendly",
                   "text": "Safe for You & the Planet"
                 },
                 {
-                  "icon": "FaThumbsUp",
+                  "id": "customer-satisfaction",
                   "title": "Customer Satisfaction",
                   "text": "Our Top Priority"
                 }
@@ -245,54 +220,51 @@
         "Services": {
           "variants": {
             "CleaningServices1": {
+              "id": "services",
               "label": "Our Services",
-              "title": [
-                {
-                  "text": "Best Cleaning ",
-                  "highlight": false
-                },
-                {
-                  "text": "Services For You",
-                  "highlight": true
-                }
-              ],
+              "titleTop": "Best Cleaning",
+              "titleAccent": "Services For You",
               "description": "From deep cleaning to regular maintenance, we deliver professional cleaning solutions for your home, office and commercial space.",
-              "cardButton": {
-                "label": "Enquire Now",
-                "href": "#contact"
-              },
+              "cardButtonText": "Enquire Now",
+              "cardButtonUrl": "#contact",
               "services": [
                 {
+                  "id": "home-deep-cleaning",
                   "icon": "LuHouse",
                   "title": "Home Deep Cleaning",
                   "text": "Detailed cleaning of every room and corner for a healthier, more comfortable home.",
                   "image": "/images/service-home.webp"
                 },
                 {
+                  "id": "office-professional-cleaning",
                   "icon": "BsBuildingsFill",
                   "title": "Office Professional Cleaning",
                   "text": "Clean and organised workspaces for a more productive, welcoming environment.",
                   "image": "/images/service-office.webp"
                 },
                 {
+                  "id": "kitchen-hygiene-cleaning",
                   "icon": "LuUtensils",
                   "title": "Kitchen Hygiene Cleaning",
                   "text": "Thorough cleaning that keeps your kitchen fresh, safe and germ-free.",
                   "image": "/images/service-kitchen.webp"
                 },
                 {
+                  "id": "bathroom-sanitization",
                   "icon": "LuBath",
                   "title": "Bathroom Sanitization",
                   "text": "Spotless, disinfected bathrooms that stay fresh for longer.",
                   "image": "/images/service-bathroom.webp"
                 },
                 {
+                  "id": "window-and-glass-cleaning",
                   "icon": "MdOutlineWindow",
                   "title": "Window & Glass Cleaning",
                   "text": "Streak-free windows and glass that let the light shine in.",
                   "image": "/images/service-window.webp"
                 },
                 {
+                  "id": "carpet-and-sofa-cleaning",
                   "icon": "TbVacuumCleaner",
                   "title": "Carpet & Sofa Cleaning",
                   "text": "Deep cleaning that lifts dirt, allergens and stains from carpets and upholstery.",
@@ -305,21 +277,11 @@
         "Gallery": {
           "variants": {
             "CleaningGallery1": {
+              "id": "gallery",
               "label": "Our Recent Work",
-              "title": [
-                {
-                  "text": "Explore the Recent ",
-                  "highlight": false
-                },
-                {
-                  "text": "Projects",
-                  "highlight": true
-                },
-                {
-                  "text": " We Have Done!",
-                  "highlight": false
-                }
-              ],
+              "titleTop": "Explore the Recent",
+              "titleAccent": "Projects",
+              "titleBottom": "We Have Done!",
               "description": "From homes to offices, we deliver exceptional results with care and attention to detail.",
               "stat": {
                 "value": "180+",
@@ -329,30 +291,35 @@
               "nextLabel": "Next project",
               "projects": [
                 {
+                  "id": "living-room-refresh",
                   "tag": "Home Cleaning",
                   "title": "Living Room Refresh",
                   "text": "A cleaner, brighter space to relax and live better.",
                   "image": "/images/project-living-room.webp"
                 },
                 {
+                  "id": "kitchen-deep-clean",
                   "tag": "Home Cleaning",
                   "title": "Kitchen Deep Clean",
                   "text": "A fresh, spotless kitchen for a healthier home.",
                   "image": "/images/project-kitchen.webp"
                 },
                 {
+                  "id": "commercial-office-clean",
                   "tag": "Office Cleaning",
                   "title": "Commercial Office Clean",
                   "text": "A cleaner workspace for a more productive team.",
                   "image": "/images/project-office.webp"
                 },
                 {
+                  "id": "bathroom-sparkle-clean",
                   "tag": "Home Cleaning",
                   "title": "Bathroom Sparkle Clean",
                   "text": "A sanitized, shining bathroom that feels brand new.",
                   "image": "/images/project-bathroom.webp"
                 },
                 {
+                  "id": "reception-area-makeover",
                   "tag": "Office Cleaning",
                   "title": "Reception Area Makeover",
                   "text": "A welcoming, spotless first impression for visitors.",
@@ -365,17 +332,10 @@
         "Testimonials": {
           "variants": {
             "CleaningTestimonials1": {
+              "id": "testimonials",
               "label": "Testimonials",
-              "title": [
-                {
-                  "text": "What Our Clients are Saying ",
-                  "highlight": false
-                },
-                {
-                  "text": "About Us",
-                  "highlight": true
-                }
-              ],
+              "titleTop": "What Our Clients are Saying",
+              "titleAccent": "About Us",
               "description": "Real feedback from real people. See why homeowners and businesses trust Avicleaner for their cleaning needs.",
               "stars": 5,
               "ratingLabel": "Rated 5 out of 5",
@@ -383,30 +343,35 @@
               "nextLabel": "Next testimonials",
               "items": [
                 {
+                  "id": "priya-sharma",
                   "quote": "Avicleaner did an amazing job at our home! The team was professional, on time, and paid great attention to detail. Our house has never looked this clean and fresh.",
                   "name": "Priya Sharma",
                   "role": "Happy Homeowner",
                   "image": "/images/client-priya.webp"
                 },
                 {
+                  "id": "sneha-kapoor",
                   "quote": "Professional, reliable, and thorough! Avicleaner transformed our space completely. Great customer service and eco-friendly products that are safe for our family.",
                   "name": "Sneha Kapoor",
                   "role": "Regular Customer",
                   "image": "/images/client-sneha.webp"
                 },
                 {
+                  "id": "amit-verma",
                   "quote": "Booking was simple and the cleaners arrived right on time. Every room was spotless when they finished the job. We now use Avicleaner every month without fail.",
                   "name": "Amit Verma",
                   "role": "Office Manager",
                   "image": "/images/client-amit.webp"
                 },
                 {
+                  "id": "vikram-singh",
                   "quote": "Courteous and efficient crew. They handled high-touch surfaces and deep stains with great attention to hygiene. Highly recommended for commercial cleaning!",
                   "name": "Vikram Singh",
                   "role": "Facility Manager",
                   "image": "/images/client-vikram.webp"
                 },
                 {
+                  "id": "neha-malhotra",
                   "quote": "Our workspace has never been healthier or more inviting. Booking was effortless and the spotless results truly exceeded our team's expectations!",
                   "name": "Neha Malhotra",
                   "role": "HR Director",
@@ -419,40 +384,39 @@
         "Faq": {
           "variants": {
             "CleaningFaq1": {
+              "id": "faq",
               "label": "FAQ's",
-              "title": [
-                {
-                  "text": "Frequently",
-                  "highlight": true
-                },
-                {
-                  "text": " Asked Questions",
-                  "highlight": false
-                }
-              ],
+              "titleAccent": "Frequently",
+              "titleBottom": "Asked Questions",
               "description": "Quick answers to common questions about our cleaning services and booking process.",
               "items": [
                 {
+                  "id": "faq-1",
                   "question": "What cleaning services do you offer?",
                   "answer": "Home, office, kitchen, bathroom, window, carpet, deep and move in/out cleaning. Every service can be tailored to your needs."
                 },
                 {
+                  "id": "faq-2",
                   "question": "How do I book a cleaning service?",
                   "answer": "Send us a message through the contact form below or call us. Tell us the service, date and time that suit you, and our team will confirm your booking."
                 },
                 {
+                  "id": "faq-3",
                   "question": "Are your cleaning products safe?",
                   "answer": "Yes. We use eco-friendly, non-toxic products that are safe for your family, pets and the environment, while still tough on dirt and germs."
                 },
                 {
+                  "id": "faq-4",
                   "question": "Do I need to provide cleaning supplies?",
                   "answer": "No. Our team arrives fully equipped. If you would like us to use specific products, just let us know when booking."
                 },
                 {
+                  "id": "faq-5",
                   "question": "Do you offer same-day cleaning?",
                   "answer": "Yes, subject to team availability. Call us as early as possible and we will do our best to clean the same day."
                 },
                 {
+                  "id": "faq-6",
                   "question": "What if I'm not satisfied with the cleaning?",
                   "answer": "Let us know within 24 hours and we will come back and re-clean the area at no extra cost."
                 }
@@ -463,17 +427,10 @@
         "Contact": {
           "variants": {
             "CleaningContact1": {
+              "id": "contact",
               "label": "Get in Touch",
-              "title": [
-                {
-                  "text": "We're Here ",
-                  "highlight": false
-                },
-                {
-                  "text": "to Help!",
-                  "highlight": true
-                }
-              ],
+              "titleTop": "We're Here",
+              "titleAccent": "to Help!",
               "description": "Have questions or need a cleaning service? Reach out and our friendly team will get back to you as soon as possible.",
               "form": {
                 "title": "Send us a Message",
@@ -502,54 +459,44 @@
         }
       },
       "templateComponents": {
-        "shared": {
-          "Header": "CleaningHeader1",
-          "Footer": "common.Footer"
-        },
-        "pages": {
-          "home": {
-            "components": [
-              {
-                "key": "Header",
-                "component": "CleaningHeader1"
-              },
-              {
-                "key": "Hero",
-                "component": "CleaningHero1"
-              },
-              {
-                "key": "AboutUs",
-                "component": "CleaningAboutUs1"
-              },
-              {
-                "key": "Services",
-                "component": "CleaningServices1"
-              },
-              {
-                "key": "Gallery",
-                "component": "CleaningGallery1"
-              },
-              {
-                "key": "Testimonials",
-                "component": "CleaningTestimonials1"
-              },
-              {
-                "key": "Faq",
-                "component": "CleaningFaq1"
-              },
-              {
-                "key": "Contact",
-                "component": "CleaningContact1"
-              },
-              {
-                "key": "EnquiryForm",
-                "component": "CleaningEnquiryForm1"
-              },
-              {
-                "key": "Footer",
-                "component": "common.Footer"
-              }
-            ]
+        "template-1": {
+          "shared": {
+            "Header": "CleaningHeader1",
+            "Footer": "common.Footer"
+          },
+          "pages": {
+            "home": {
+              "components": [
+                {
+                  "key": "Hero",
+                  "component": "CleaningHero1"
+                },
+                {
+                  "key": "About",
+                  "component": "CleaningAbout1"
+                },
+                {
+                  "key": "Services",
+                  "component": "CleaningServices1"
+                },
+                {
+                  "key": "Gallery",
+                  "component": "CleaningGallery1"
+                },
+                {
+                  "key": "Testimonials",
+                  "component": "CleaningTestimonials1"
+                },
+                {
+                  "key": "Faq",
+                  "component": "CleaningFaq1"
+                },
+                {
+                  "key": "Contact",
+                  "component": "CleaningContact1"
+                }
+              ]
+            }
           }
         }
       }

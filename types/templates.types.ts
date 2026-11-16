@@ -10,43 +10,32 @@ export interface ThemeData {
 export interface SiteMetadataData {
   title: string;
   description: string;
+  icon: string;
   lang: string;
 }
 
-export interface GlobalUIData {
-  mainNav: string;
-  mobileNav: string;
-  openMenu: string;
-  closeMenu: string;
-  backToTop: string;
-}
-
-export interface LinkData {
+export interface LinkItem {
+  id: string;
   label: string;
-  href: string;
+  url: string;
 }
 
-export interface ImageData {
-  src: string;
-  alt: string;
-}
-
-export interface SizedImageData extends ImageData {
-  width: number;
-  height: number;
-}
-
-/** A heading split into parts; highlighted parts show in the brand colour. */
-export interface HeadingPart {
-  text: string;
-  highlight: boolean;
-}
-
-export interface ContactInfoItem {
+export interface ContactItem {
+  id: string;
   icon: string;
   title: string;
   lines: string[];
-  href: string;
+  url: string;
+}
+
+export interface CompanyData {
+  name: string;
+  logo: string;
+  logoLight: string;
+  logoAlt: string;
+  logoWidth: number;
+  logoHeight: number;
+  contactItems: ContactItem[];
 }
 
 export interface SocialLink {
@@ -56,56 +45,40 @@ export interface SocialLink {
   url: string;
 }
 
-export interface CompanyData {
-  contactInfo: ContactInfoItem[];
-  socialLinks: SocialLink[];
-}
-
 export interface FooterData {
-  logo: SizedImageData;
-  tagline: string;
-  menuTitle: string;
+  description: string;
+  quickLinksTitle: string;
   contactTitle: string;
-  copyright: string;
+  socialLinks: SocialLink[];
+  copyrightText: string;
+  /** the words in the pill at the foot of the page */
   motto: string[];
 }
 
-export interface CommonData {
-  theme: ThemeData;
-  metadata: SiteMetadataData;
-  globalUI: GlobalUIData;
-  company: CompanyData;
-  Footer?: FooterData;
-}
-
 export interface HeaderData {
-  brand: {
-    name: string;
-    logo: SizedImageData;
-  };
-  navigation: LinkData[];
-  cta: LinkData;
+  logoUrl: string;
+  homeLabel: string;
+  navLinks: LinkItem[];
+  buttonText: string;
+  buttonUrl: string;
+  mainNavLabel: string;
+  mobileNavLabel: string;
+  openMenuLabel: string;
+  closeMenuLabel: string;
 }
 
-/** A short point with an icon, e.g. "Eco-Friendly Products" */
-export interface IconPoint {
-  icon: string;
+/** A title with its highlighted words (titleAccent) in the brand colour; the plain words before and after are optional */
+export interface SplitTitle {
+  titleTop?: string;
+  titleAccent: string;
+  titleBottom?: string;
+}
+
+/** A short numbered point, e.g. "Eco-Friendly — Safe for You & the Planet" */
+export interface TextPoint {
+  id: string;
   title: string;
   text: string;
-}
-
-export interface HeroData {
-  label: string;
-  title: HeadingPart[];
-  description: string;
-  button: LinkData;
-  image: ImageData;
-  clients: {
-    value: string;
-    label: string;
-    ratingLabel: string;
-    images: string[];
-  };
 }
 
 export interface StatItem {
@@ -113,41 +86,63 @@ export interface StatItem {
   label: string;
 }
 
-export interface AboutUsData {
+export interface HeroData extends SplitTitle {
+  id: string;
   label: string;
-  title: HeadingPart[];
   description: string;
-  image: ImageData;
-  secondImage: ImageData;
+  buttonText: string;
+  buttonUrl: string;
+  image: string;
+  imageAlt: string;
+  clients: {
+    value: string;
+    label: string;
+    stars: number;
+    ratingLabel: string;
+    images: string[];
+  };
+}
+
+export interface AboutData extends SplitTitle {
+  id: string;
+  label: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  secondImage: string;
+  secondImageAlt: string;
   badge: StatItem;
-  features: IconPoint[];
+  features: TextPoint[];
 }
 
 export interface ServiceCard {
+  id: string;
   icon: string;
   title: string;
   text: string;
   image: string;
 }
 
-export interface ServicesData {
+export interface ServicesData extends SplitTitle {
+  id: string;
   label: string;
-  title: HeadingPart[];
   description: string;
-  cardButton: LinkData;
+  cardButtonText: string;
+  cardButtonUrl: string;
   services: ServiceCard[];
 }
 
 export interface ProjectCard {
+  id: string;
   tag: string;
   title: string;
   text: string;
   image: string;
 }
 
-export interface GalleryData {
+export interface GalleryData extends SplitTitle {
+  id: string;
   label: string;
-  title: HeadingPart[];
   description: string;
   stat: StatItem;
   previousLabel: string;
@@ -156,15 +151,16 @@ export interface GalleryData {
 }
 
 export interface TestimonialItem {
+  id: string;
   quote: string;
   name: string;
   role: string;
   image: string;
 }
 
-export interface TestimonialsData {
+export interface TestimonialsData extends SplitTitle {
+  id: string;
   label: string;
-  title: HeadingPart[];
   description: string;
   stars: number;
   ratingLabel: string;
@@ -174,20 +170,21 @@ export interface TestimonialsData {
 }
 
 export interface FaqItem {
+  id: string;
   question: string;
   answer: string;
 }
 
-export interface FaqData {
+export interface FaqData extends SplitTitle {
+  id: string;
   label: string;
-  title: HeadingPart[];
   description: string;
   items: FaqItem[];
 }
 
-export interface ContactData {
+export interface ContactData extends SplitTitle {
+  id: string;
   label: string;
-  title: HeadingPart[];
   description: string;
   form: {
     title: string;
@@ -210,43 +207,41 @@ export interface EnquiryFormData {
   closeLabel: string;
 }
 
-type Section<Variant extends string, Data> = {
-  variants?: { [Name in Variant]?: Data };
-};
-
-export interface CleaningSections {
-  Header?: Section<"CleaningHeader1", HeaderData>;
-  Hero?: Section<"CleaningHero1", HeroData>;
-  AboutUs?: Section<"CleaningAboutUs1", AboutUsData>;
-  Services?: Section<"CleaningServices1", ServicesData>;
-  Gallery?: Section<"CleaningGallery1", GalleryData>;
-  Testimonials?: Section<"CleaningTestimonials1", TestimonialsData>;
-  Faq?: Section<"CleaningFaq1", FaqData>;
-  Contact?: Section<"CleaningContact1", ContactData>;
-  EnquiryForm?: Section<"CleaningEnquiryForm1", EnquiryFormData>;
+interface Variants<T> {
+  variants: Record<string, T>;
 }
 
-export interface TemplateComponentEntry {
+export interface TemplateComponent {
   key: string;
   component: string;
 }
 
-export interface TemplateComponents {
-  shared: {
-    Header: string;
-    Footer: string;
-  };
-  pages: Record<string, { components: TemplateComponentEntry[] }>;
-}
-
-export interface CleaningCategory {
-  sections: CleaningSections;
-  templateComponents: TemplateComponents;
-}
-
 export interface CleaningTemplateData {
-  common: CommonData;
+  common: {
+    theme: ThemeData;
+    metadata: SiteMetadataData;
+    company: CompanyData;
+    Footer: FooterData;
+  };
   categories: {
-    Cleaning: CleaningCategory;
+    Cleaning: {
+      sections: {
+        Header?: Variants<HeaderData>;
+        Hero?: Variants<HeroData>;
+        About?: Variants<AboutData>;
+        Services?: Variants<ServicesData>;
+        Gallery?: Variants<GalleryData>;
+        Testimonials?: Variants<TestimonialsData>;
+        Faq?: Variants<FaqData>;
+        Contact?: Variants<ContactData>;
+        EnquiryForm?: Variants<EnquiryFormData>;
+      };
+      templateComponents: {
+        [template: string]: {
+          shared: Record<string, string>;
+          pages: Record<string, { components: TemplateComponent[] }>;
+        };
+      };
+    };
   };
 }

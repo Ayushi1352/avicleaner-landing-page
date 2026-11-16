@@ -13,7 +13,7 @@ export const HeroSection = ({ data: hero }: { data?: HeroData }) => {
   const { clients } = hero;
 
   return (
-    <section className="relative isolate overflow-hidden bg-[var(--color-forest)] pt-[4.5rem]">
+    <section id={hero.id} className="relative isolate overflow-hidden bg-[var(--color-forest)] pt-[4.5rem]">
       {/* soft lime glow behind the heading */}
       <div aria-hidden="true" className="absolute -left-40 -top-40 -z-10 size-[36rem] rounded-full bg-[var(--color-primary)] opacity-40 blur-[8rem]" />
 
@@ -21,18 +21,18 @@ export const HeroSection = ({ data: hero }: { data?: HeroData }) => {
         <div className="transition-[opacity,transform] duration-700 ease-out [@starting-style]:translate-y-5 [@starting-style]:opacity-0">
           <SectionLabel text={hero.label} light />
           <h1 className="mt-5 font-display text-[2.5rem] font-semibold leading-[1.05] tracking-[-0.03em] text-[var(--color-white)] sm:text-[3.5rem] lg:text-[3.875rem]">
-            <HeadingText parts={hero.title} light />
+            <HeadingText titleTop={hero.titleTop} titleAccent={hero.titleAccent} titleBottom={hero.titleBottom} light />
           </h1>
           <p className="mt-5 max-w-xl leading-relaxed text-[var(--color-white-70)] sm:text-[1.0625rem]">{hero.description}</p>
-          <a href={hero.button.href} className={`${buttonLime} mt-8 h-[3.25rem] px-7`}>
-            {hero.button.label}
+          <a href={hero.buttonUrl} className={`${buttonLime} mt-8 h-[3.25rem] px-7`}>
+            {hero.buttonText}
             <Icon name="LuArrowRight" className={buttonArrow} />
           </a>
         </div>
 
         <div className="relative transition-[opacity,transform] delay-150 duration-700 ease-out [@starting-style]:translate-y-5 [@starting-style]:opacity-0">
           <div className="relative h-72 overflow-hidden rounded-[1.75rem] sm:h-[26rem] lg:h-[34rem]">
-            <Image src={hero.image.src} alt={hero.image.alt} fill preload quality={90} sizes="(min-width: 1024px) 600px, 92vw" className="object-cover object-[72%_center]" />
+            <Image src={hero.image} alt={hero.imageAlt} fill preload quality={90} sizes="(min-width: 1024px) 600px, 92vw" className="object-cover object-[72%_center]" />
           </div>
 
           {/* happy clients card over the bottom-left corner */}
@@ -46,7 +46,7 @@ export const HeroSection = ({ data: hero }: { data?: HeroData }) => {
             </span>
             <span>
               <span className="flex gap-0.5 text-[var(--color-primary)]" role="img" aria-label={clients.ratingLabel}>
-                {Array.from({ length: 5 }, (_, n) => (
+                {Array.from({ length: clients.stars }, (_, n) => (
                   <Icon key={n} name="FaStar" className="size-3" />
                 ))}
               </span>

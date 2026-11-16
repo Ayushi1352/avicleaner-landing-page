@@ -45,7 +45,7 @@ export const TestimonialSlider = ({ data }: { data: TestimonialsData }) => {
         <div className="mt-4 grid" aria-live="polite">
           {/* every quote takes up the same cell unseen, so the card keeps the height of the longest one and the controls never jump */}
           {items.map((item) => (
-            <Quote key={item.name} item={item} className="invisible col-start-1 row-start-1" />
+            <Quote key={item.id} item={item} className="invisible col-start-1 row-start-1" />
           ))}
           {/* keyed by slide, so each new quote fades in */}
           <Quote key={index} item={items[index]} className="col-start-1 row-start-1 transition-opacity duration-500 [@starting-style]:opacity-0" />
@@ -56,7 +56,7 @@ export const TestimonialSlider = ({ data }: { data: TestimonialsData }) => {
         <div className="mr-auto flex gap-2">
           {items.map((item, n) => (
             <button
-              key={item.name}
+              key={item.id}
               type="button"
               aria-label={item.name}
               aria-current={n === index}

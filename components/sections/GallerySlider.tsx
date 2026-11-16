@@ -53,7 +53,7 @@ export const GallerySlider = ({ projects, previousLabel, nextLabel }: GallerySli
         className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto scroll-smooth px-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:scroll-px-0 lg:gap-5 lg:px-0 [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((project, index) => (
-          <li key={project.title} className="group w-[80%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2.15)] lg:w-[calc((100%-2.5rem)/3)]">
+          <li key={project.id} className="group w-[80%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2.15)] lg:w-[calc((100%-2.5rem)/3)]">
             <div className="relative h-72 overflow-hidden rounded-[1.75rem] bg-[var(--color-forest-deep)] sm:h-80 lg:h-[22rem]">
               <Image
                 quality={90}

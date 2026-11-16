@@ -1,4 +1,4 @@
-import type { HeadingPart } from "@/types/templates.types";
+import type { SplitTitle } from "@/types/templates.types";
 import { Icon } from "@/components/ui/Icon";
 
 /** Small rounded chip above a heading, with a sparkle (mint on light sections, see-through on dark ones) */
@@ -13,20 +13,20 @@ export const SectionLabel = ({ text, light = false, className = "" }: { text: st
   </p>
 );
 
-/** Heading text with its highlighted words in green (lime on dark sections) */
-export const HeadingText = ({ parts, light = false }: { parts: HeadingPart[]; light?: boolean }) =>
-  parts.map((part) => (
-    <span key={part.text} className={part.highlight ? (light ? "text-[var(--color-lime)]" : "text-[var(--color-primary)]") : ""}>
-      {part.text}
-    </span>
-  ));
+/** Title text with its highlighted words (titleAccent) in green (lime on dark sections) */
+export const HeadingText = ({ titleTop, titleAccent, titleBottom, light = false }: SplitTitle & { light?: boolean }) => (
+  <>
+    {titleTop && `${titleTop} `}
+    <span className={light ? "text-[var(--color-lime)]" : "text-[var(--color-primary)]"}>{titleAccent}</span>
+    {titleBottom && ` ${titleBottom}`}
+  </>
+);
 
 /** Same size and weight for every section title */
 export const headingClass = "text-balance font-display text-[1.875rem] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[2.375rem] lg:text-[2.75rem]";
 
-type SectionHeadingProps = {
+type SectionHeadingProps = SplitTitle & {
   label: string;
-  title: HeadingPart[];
   description?: string;
   align?: "left" | "center";
   light?: boolean;
@@ -35,14 +35,14 @@ type SectionHeadingProps = {
 };
 
 /** Section intro used across the page: chip, title with a highlight, optional text */
-export const SectionHeading = ({ label, title, description, align = "left", light = false, descriptionClassName = "", className = "" }: SectionHeadingProps) => {
+export const SectionHeading = ({ label, titleTop, titleAccent, titleBottom, description, align = "left", light = false, descriptionClassName = "", className = "" }: SectionHeadingProps) => {
   const center = align === "center";
 
   return (
     <div data-reveal className={`${center ? "mx-auto max-w-3xl text-center" : "max-w-2xl"} ${className}`}>
       <SectionLabel text={label} light={light} />
       <h2 className={`mt-4 ${headingClass} ${light ? "text-[var(--color-white)]" : "text-[var(--color-heading)]"}`}>
-        <HeadingText parts={title} light={light} />
+        <HeadingText titleTop={titleTop} titleAccent={titleAccent} titleBottom={titleBottom} light={light} />
       </h2>
       {description && (
         <p className={`mt-3 text-sm leading-relaxed sm:text-[1rem] ${light ? "text-[var(--color-white-70)]" : "text-[var(--color-text-muted)]"} ${descriptionClassName}`}>{description}</p>
